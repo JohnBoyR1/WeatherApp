@@ -1,0 +1,110 @@
+body {
+  /*default back ground in video does not load*/
+  color: #ffffff;                /*font/text colour*/
+  font-family: Arial;              /* font family for page unless over written*/
+  /*great way to get colors mixed across the scree with "to right"*/
+  background-image: linear-gradient(to right, #81d4fa, #2196f3);
+  z-index: -12; /*this ensures the default background is underneath all*/
+}
+/*background video depicting the weather in location searched*/
+#video {
+  position: fixed;                  /* keeps video in a fixed position */    
+  top: 50%;                         /* centers the video between top and bottom */
+  left: 50%;                        /* centers the video between left and right */
+  height: 100vh;                    /* sets the video to full height of view port*/
+  width: 100vh;                     /* sets the video to full width of view port*/
+  min-width: 100%;                  /*ensures the min size of video takes up width and height*/  
+  min-height: 100%;                 
+  object-fit: cover;                /* covers background and scales*/
+  transform: translate(-50%, -50%); /*to ensure centering*/
+  z-index: -10;                     /* ensure videos play behind */ 
+}
+
+/*left fixed column holding search inputs and displays*/
+#card {
+  color: #ffffff;                        /*ensure the font colour stays the same*/
+  padding: 0px 0px 40px 40px;              /* padding inside margin at bottom and left */
+  /*glass effect background of the card*/
+  background: rgba(255, 255, 255,0.2);   /*color of background and the .2 is the opacity*/
+  backdrop-filter: blur(12px);             /* using filter creates this distortion mimic privacy glass */
+  margin-left: 3%;                         /* keeping card left of the view port*/
+  margin-top: 1%;                          /* keeping the card close to the top to fit content no need for scroll */
+  border-radius: 15px;                     /* cleaning up the corners by rounding*/
+  max-width: 50%;                          /* maximum amount of width of the view port the card can take up while larger than 768px*/ 
+  min-width: 310px;                        /* card can not go less than 310px wide */
+  font-size: 1rem;                         /* 1 rem is about 16px used because is scale proportionally to the screen size*/
+  z-index: 100;                            /*to insure the card stays on top of the background*/
+                              
+}
+
+
+/* this is to ensure the input place holders not larger than 70% of the card container*/
+#input_country_div, #input_place_div {
+  max-width: 70%;
+}
+
+
+/* magnifying glass as a search button with in second placeholder*/
+#search-btn {
+  margin-top: 5%;                         /* position magnifying glass inside the button */
+  border-color: transparent;              /* removing button border */
+  background-color: transparent;          /* removing button background */
+  font-size: 1.4rem;                      /* size of the magnifying glass in this instance */
+  padding: 5px;                           /* used to center the magnifying glass with in the button*/
+  /* even thought button can't be seen, it must define size for positioning */
+  width: 40px;  
+  height: 40px;
+}
+/* magnifying glass hovering */
+#search-btn:hover {
+  transform: scale(1.2);                   /*when cursor hovers over the magnifying glass, scales larger */
+  cursor: pointer;                         /*when cursor hovers the cursor changes to a pointer*/
+}
+/*City Suggestions below input placeholders*/
+.suggestion {
+  font-size: 1.5rem;                       /*suggested city names font size 26px*/
+}
+/* Displayed City Names as suggestions hover animation*/ 
+.suggestion:hover {
+  cursor: pointer;              /*when pointer hovers over name turn to a pointer*/
+  transform: scale(1.05);       /*city name enlarger when pointer hovers over name*/
+}
+/*line below city suggestions and estimated time*/
+.line {
+  height: 2px;                             /*line created in HTML thickness */
+  background-color: #b0bec5;             /* colour of the line */
+  max-width: 90%;                          /* maximum length(width) of the line with in the container*/
+}
+
+/*font size for degree of place*/
+#temp {
+  font-size: 4rem;                          /*Temperature of location displayed at a font size of 64px and scales*/
+}
+
+/* id=place, location heading */
+h2 {
+  font-size: 3rem;                          /* City location font size of 48px and scales*/
+}
+
+/*information local-time, day, date, condition and estimated time of destination*/
+.info {
+  font-size: 1rem;                         
+}
+
+/* media queries for screens */
+/*the placer holder inputs adjusted to certain view ports sizes*/
+
+/*prevents the the place holder inputs from taking up more than 40% of the screen when screen is larger than 1440px(ultra wide)*/
+@media (min-width: 1441px){
+  #input_country_div, #input_place_div {
+  max-width: 40%;
+ }
+}
+
+/*prevents the place holder inputs from shrinking smaller that 270px and no larger than 80% of the view port size*/
+@media (max-width: 768px){
+  #input_country_div, #input_place_div {
+  min-width: 270px;  
+  max-width: 80%;
+ }
+}
