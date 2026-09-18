@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const apiUrl = 
          "https://api.openweathermap.org/data/2.5/weather?q=" +
          place + "," + code +                                    
-         "&appid=675ccbfe2cbca33c2a8f7101a6f1c579&units=metric";
+         "&appid=" + apiKey + &units=metric";
 
          
       // fetch the weather API using(apiUrl)
